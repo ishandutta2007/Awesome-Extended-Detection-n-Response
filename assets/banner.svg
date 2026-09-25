@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 350" width="100%" height="100%" style="background:#0d1117; border-radius: 10px;">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1117" />
+      <stop offset="50%" stop-color="#161b22" />
+      <stop offset="100%" stop-color="#090d11" />
+    </linearGradient>
+    <linearGradient id="text-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#58a6ff" />
+      <stop offset="50%" stop-color="#bc8cff" />
+      <stop offset="100%" stop-color="#3fb950" />
+    </linearGradient>
+    <linearGradient id="card-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(56, 139, 253, 0.15)" />
+      <stop offset="100%" stop-color="rgba(188, 140, 255, 0.05)" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <style>
+    .title { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 42px; font-weight: 800; fill: url(#text-grad); }
+    .subtitle { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 500; fill: #8b949e; }
+    .badge-text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 600; fill: #c9d1d9; }
+    
+    /* Dynamic background animations */
+    @keyframes pulse {
+      0% { opacity: 0.2; transform: scale(0.98); }
+      50% { opacity: 0.6; transform: scale(1.02); }
+      100% { opacity: 0.2; transform: scale(0.98); }
+    }
+    @keyframes float-node {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+    @keyframes dash {
+      to { stroke-dashoffset: -40; }
+    }
+
+    .pulsing-grid { animation: pulse 6s infinite ease-in-out; transform-origin: center; }
+    .node-1 { animation: float-node 4s infinite ease-in-out; }
+    .node-2 { animation: float-node 5s infinite ease-in-out 1s; }
+    .node-3 { animation: float-node 4.5s infinite ease-in-out 0.5s; }
+    .flowing-line { stroke-dasharray: 8, 8; animation: dash 2s linear infinite; }
+  </style>
+
+  <!-- Background Layer -->
+  <rect width="1200" height="350" fill="url(#bg-grad)" rx="10"/>
+
+  <!-- Dynamic Cyber Grid & Network Graph (Background Layer) -->
+  <g class="pulsing-grid" opacity="0.3">
+    <!-- Grid Lines -->
+    <path d="M 0,50 L 1200,50 M 0,100 L 1200,100 M 0,150 L 1200,150 M 0,200 L 1200,200 M 0,250 L 1200,250 M 0,300 L 1200,300" stroke="#30363d" stroke-width="1"/>
+    <path d="M 100,0 L 100,350 M 200,0 L 200,350 M 300,0 L 300,350 M 400,0 L 400,350 M 500,0 L 500,350 M 600,0 L 600,350 M 700,0 L 700,350 M 800,0 L 800,350 M 900,0 L 900,350 M 1000,0 L 1000,350 M 1100,0 L 1100,350" stroke="#30363d" stroke-width="1"/>
+  </g>
+
+  <!-- Animated Telemetry Flow Lines -->
+  <g opacity="0.4">
+    <path d="M 150,280 C 300,320 450,250 600,280 C 750,310 900,240 1050,270" fill="none" stroke="#58a6ff" stroke-width="2" class="flowing-line"/>
+    <path d="M 100,240 C 250,180 400,280 650,220 C 800,160 950,260 1100,210" fill="none" stroke="#bc8cff" stroke-width="2" class="flowing-line"/>
+  </g>
+
+  <!-- Background Dynamic Sensor Nodes -->
+  <g class="node-1" opacity="0.5">
+    <circle cx="1000" cy="80" r="6" fill="#3fb950" filter="url(#glow)"/>
+    <circle cx="1000" cy="80" r="14" fill="none" stroke="#3fb950" stroke-width="1.5" stroke-dasharray="3,3"/>
+  </g>
+  <g class="node-2" opacity="0.5">
+    <circle cx="150" cy="100" r="5" fill="#58a6ff" filter="url(#glow)"/>
+    <circle cx="150" cy="100" r="12" fill="none" stroke="#58a6ff" stroke-width="1.5"/>
+  </g>
+  <g class="node-3" opacity="0.5">
+    <circle cx="1080" cy="220" r="7" fill="#bc8cff" filter="url(#glow)"/>
+    <circle cx="1080" cy="220" r="16" fill="none" stroke="#bc8cff" stroke-width="1.5" stroke-dasharray="4,2"/>
+  </g>
+
+  <!-- Foreground Content Container (Ensures Text and Badges are 100% visible & readable) -->
+  <g transform="translate(60, 50)">
+    
+    <!-- Shield Logo Icon -->
+    <g transform="translate(0, 10)">
+      <path d="M 30,5 L 55,18 V 45 C 55,65 30,80 30,80 C 30,80 5,65 5,45 V 18 Z" fill="none" stroke="#58a6ff" stroke-width="3.5" filter="url(#glow)"/>
+      <path d="M 30,15 L 45,24 V 43 C 45,57 30,67 30,67 C 30,67 15,57 15,43 V 24 Z" fill="url(#card-grad)" stroke="#bc8cff" stroke-width="1.5"/>
+      <path d="M 23,40 L 28,45 L 38,33" fill="none" stroke="#3fb950" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+    <!-- Main Title & Subtitle -->
+    <text x="80" y="48" class="title">Awesome Extended Detection &amp; Response (XDR)</text>
+    <text x="80" y="85" class="subtitle">🛡️ Comprehensive Directory of Commercial XDR Platforms &amp; Open-Source SOC Building Blocks</text>
+
+    <!-- Visual Feature Badges / Metadata Cards -->
+    <g transform="translate(80, 120)">
+      
+      <!-- Card 1: Telemetry Layers -->
+      <g transform="translate(0, 0)">
+        <rect width="210" height="70" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+        <rect width="210" height="70" rx="8" fill="url(#card-grad)"/>
+        <text x="15" y="28" class="badge-text" fill="#58a6ff">🌐 Telemetry Coverage</text>
+        <text x="15" y="50" font-family="-apple-system, sans-serif" font-size="12" fill="#8b949e">Endpoint • Cloud • Identity • Email</text>
+      </g>
+
+      <!-- Card 2: Market & Ecosystem -->
+      <g transform="translate(230, 0)">
+        <rect width="210" height="70" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+        <rect width="210" height="70" rx="8" fill="url(#card-grad)"/>
+        <text x="15" y="28" class="badge-text" fill="#bc8cff">📊 Market Dynamics</text>
+        <text x="15" y="50" font-family="-apple-system, sans-serif" font-size="12" fill="#8b949e">$3.8B+ Market • Oligopolistic</text>
+      </g>
+
+      <!-- Card 3: Open Source Stack -->
+      <g transform="translate(460, 0)">
+        <rect width="210" height="70" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+        <rect width="210" height="70" rx="8" fill="url(#card-grad)"/>
+        <text x="15" y="28" class="badge-text" fill="#3fb950">⚡ Open Building Blocks</text>
+        <text x="15" y="50" font-family="-apple-system, sans-serif" font-size="12" fill="#8b949e">Wazuh • Velociraptor • Elastic</text>
+      </g>
+
+      <!-- Card 4: Curated Insights -->
+      <g transform="translate(690, 0)">
+        <rect width="210" height="70" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+        <rect width="210" height="70" rx="8" fill="url(#card-grad)"/>
+        <text x="15" y="28" class="badge-text" fill="#d29922">🎯 SOC &amp; SecOps Ready</text>
+        <text x="15" y="50" font-family="-apple-system, sans-serif" font-size="12" fill="#8b949e">Pricing • Free Tiers • Star Counts</text>
+      </g>
+
+    </g>
+
+    <!-- Bottom Decorative Accent Line -->
+    <line x1="80" y1="220" x2="990" y2="220" stroke="#30363d" stroke-width="1"/>
+    <circle cx="80" cy="220" r="3" fill="#58a6ff"/>
+    <circle cx="990" cy="220" r="3" fill="#3fb950"/>
+
+  </g>
+</svg>
