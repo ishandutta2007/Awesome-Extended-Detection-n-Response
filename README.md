@@ -65,7 +65,7 @@ This repository features:
 
 ## 🔓 Open-Source GitHub Projects
 
-> Open-source security projects provide foundational modules for SOC teams to build self-hosted, custom Extended Detection & Response capabilities. Projects below are sorted by **GitHub Stars_Count (Descending)** 🌟.
+> Open-source security projects provide foundational modules for SOC teams to build self-hosted, custom Extended Detection & Response capabilities. Projects below are sorted by **GitHub_Stars_Count (Descending)** 🌟.
 
 | Open-Source Project | Stargazers Badge | Description & Core XDR Capabilities |
 | :--- | :--- | :--- |
